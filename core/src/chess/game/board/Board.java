@@ -13,12 +13,19 @@ public class Board {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Position p = new Position(i, j);
+                board.put(p, new Tile(p));
             }
         }
     }
 
 
     public void draw(SpriteBatch batch) {
+        for(Tile t : board.values()) {
+            batch.draw(t.getTexture(), t.getX(), t.getY(), 1, 1);
+        }
+    }
+
+    public void dispose() {
 
     }
 }

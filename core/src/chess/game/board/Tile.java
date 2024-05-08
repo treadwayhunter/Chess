@@ -10,7 +10,7 @@ public class Tile {
 
     public Tile(Position position) {
         this.position = position;
-
+        updateTexture();
     }
 
     /**
@@ -18,10 +18,32 @@ public class Tile {
      * @return
      */
     public String getColor() {
-        int vector = position.getX() + position.getY();
-        return vector % 2 == 0 ? "black" : "white";
+        return (position.getParity() & 1) == 0 ? "black" : "white";
     }
 
+    public Texture getTexture() {
+        return texture;
+    }
 
+    private void updateTexture() {
+        try {
+            if ((position.getParity() & 1) == 0) {
+                texture = new Texture("tiles/black_tile.png");
+            } else {
+                texture = new Texture("tiles/white_tile.png");
+            }
+        }
+        catch (NullPointerException e) {
+            System.out.println(e);
+            System.out.println("Issue Changing the Texture of Tile at: " + position.getX() + " " + position.getY());
+        }
+    }
 
+    public int getX() {
+        return position.getX();
+    }
+
+    public int getY() {
+        return position.getY();
+    }
 }

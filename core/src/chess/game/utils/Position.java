@@ -14,4 +14,8 @@ public class Position {
     public int getY() {
         return y;
     }
+
+    public int getParity() {
+        return x + y;
+    }
 }
