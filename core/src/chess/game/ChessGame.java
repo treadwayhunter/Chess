@@ -24,12 +24,9 @@ public class ChessGame extends ApplicationAdapter {
     @Override
     public void create () {
         batch = new SpriteBatch();
-        //img = new Texture("badlogic.jpg");
-        //tile = new Tile(new Position(0, 0));
-        //tile2 = new Tile(new Position(0, 1));
         board = new Board();
         camera = new OrthographicCamera();
-        viewport = new FitViewport(1920/64, 1080/64, camera);
+        viewport = new FitViewport(1920/128, 1080/128, camera);
 
         camera.position.set((viewport.getWorldWidth() / 2) - 4, viewport.getWorldHeight() / 2, 0);
 
