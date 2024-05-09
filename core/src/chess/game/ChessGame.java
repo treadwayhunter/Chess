@@ -8,13 +8,16 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class ChessGame extends ApplicationAdapter {
     SpriteBatch batch;
     Texture img;
 
-    FitViewport viewport;
+    Viewport viewport;
     OrthographicCamera camera;
 
     Board board;
@@ -26,8 +29,9 @@ public class ChessGame extends ApplicationAdapter {
         //tile2 = new Tile(new Position(0, 1));
         board = new Board();
         camera = new OrthographicCamera();
-        viewport = new FitViewport(800/64, 480/64, camera);
-        camera.position.set((viewport.getWorldWidth() / 2) - 2, viewport.getWorldHeight() / 2, 0);
+        viewport = new FitViewport(1920/64, 1080/64, camera);
+
+        camera.position.set((viewport.getWorldWidth() / 2) - 4, viewport.getWorldHeight() / 2, 0);
 
     }
 
